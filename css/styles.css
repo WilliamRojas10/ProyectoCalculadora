@@ -1,0 +1,96 @@
+:root{
+    --temaClaro: white;
+    --temaOscuro: black;
+    --temaNaraja: rgb(255, 123, 0);
+    --tamanioFuente: 28px;
+}
+
+*{
+    background-color: var(--temaOscuro);
+    color: var(--fuenteBlanca);
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.calculadora{
+    display: grid;
+    grid-template-rows: 130px 1fr;
+    border: solid 1px var(--temaClaro);
+    border-radius: 20px;
+}
+#pantalla{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    padding: 7% 10%;
+    border: solid 1px var(--temaClaro);
+    border-radius: 20px;
+    margin: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+#valor-anterior{
+    font-size: 1em;
+    color: var(--temaClaro);
+}
+#valor-actual{
+    font-size: 2.2em;
+    color:var(--temaClaro);
+}
+.teclado{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    gap: 7px;
+    margin: 10px;
+}
+.teclado > *{
+    cursor: pointer;
+    font-size: var(--tamanioFuente);
+}
+
+.numero{
+    border: solid 1px var(--temaClaro);
+    border-radius: 50%;
+    padding: 0.3em; 
+    color: var(--temaClaro);
+}
+.cero{
+    grid-row: 5/6 ;
+    grid-column: 1/3;
+    border-radius: 25px;
+}
+
+.operador{
+    border: solid 1px var(--temaClaro);
+    border-radius: 50%;
+    padding: 0.3em; 
+    background-color: var(--temaNaraja);
+    color: var(--temaOscuro);
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.funcion{
+    border: solid 1px var(--temaClaro);
+    border-radius: 50%;
+    padding: 0.5em; 
+    color: var(--temaNaraja) ;
+    background-color: rgb(59, 58, 58);
+}
+
+.funcionalidades{
+    border: solid 1px var(--temaClaro);
+    border-radius: 50%;
+    padding: 0.3em; 
+    color: var(--temaClaro);
+}
+
