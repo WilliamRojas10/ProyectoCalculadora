@@ -25,8 +25,8 @@ const division = function(nro1, nro2){
 };
 //-------------
 function borrar(){
-    pantallaValorActual.textContent =  pantallaValorActual.textContent.toString().slice(0,-1);
-    valorActual = pantallaValorActual;
+    valorActual =  valorActual.toString().slice(0,-1);
+    pantallaValorActual.textContent = valorActual;
 };
 function borrarTodo(){
     pantallaValorActual.innerHTML = "";
@@ -60,8 +60,25 @@ botonesNumeros.forEach(boton => {
     imprimir_actual(agregar_numero(boton.innerHTML))) //valorActual tiene el mismo valor de pantallavaloractual  
 });
 
-const operacion = function(operador){
-    resultado = operador(valorAnterior, valorActual)
+const operacion = function(){
+    console.log(valorAnterior,"< valorAnterior + ", valorActual, "<valor Actual = ", resultado)
+    if (valorActual != "" && simbolo != ""){
+        switch(simbolo){
+            case "+":
+            resultado = suma(valorAnterior, valorActual)
+            console.log(simbolo ,resultado + "<resultado")
+            break
+            case "-":
+            resultado = resta(valorAnterior, valorActual)
+            break
+            case "×":
+            resultado = multiplicacion(valorAnterior, valorActual)
+            break
+            case "÷":
+            resultado = division(valorAnterior, valorActual)
+            break
+        }
+    }
     valorAnterior = resultado //Para que opere el resultado anterior con el valor actual
     pantallaValorActual.textContent = ""
     valorActual = ""; //Se renicia porque ya fue operado
@@ -69,7 +86,7 @@ const operacion = function(operador){
     pantallaValorActual.textContent = resultadoActual
     pantallaValorActual.style = "color:gray;"
 }
-
+2+2
 
 
 
@@ -78,50 +95,49 @@ botonesOperadores.forEach(operador => {
     operador.addEventListener("click", ()=>{
     switch (operador.value){
         case "sumar":
-          //  console.log(pantallaValorAnterior.innerText + " <> "+ pantallaValorActual.innerText)
-            simbolo = "+"
-            historial += `${valorActual} ${simbolo} `
+          historial += `${valorActual} + `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
-                imprimir_anterior(pantallaValorAnterior.textContent)
+            imprimir_anterior(pantallaValorAnterior.textContent)
             }
             if (valorAnterior != "" && valorActual != ""){//CUNADO LA PRIMERA OPRACION ESTA COMPLETA
-                operacion(suma)
-            }
-            console.log(valorActual)
-            console.log(valorAnterior,"< valorAnterior + ", valorActual, "<valor Actual = ", resultado)
+            operacion()
+             }
+            simbolo = "+"
             pantallaValorAnterior.textContent = historial 
             break
         case "restar":
-            simbolo = "-"
-            historial += `${pantallaValorActual.textContent} ${simbolo} `
+            historial += `${pantallaValorActual.textContent} - `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
             if (valorAnterior != "" && valorActual != ""){//CUNADO LA PRIMERA OPRACION ESTA COMPLETA
-               operacion(resta)
+               operacion()
             }
+            simbolo = "-" 
             pantallaValorAnterior.textContent = historial 
             break
         case "multiplicar":
-            simbolo = "×"
-            historial += `${pantallaValorActual.textContent} ${simbolo} `
+            
+            historial += `${pantallaValorActual.textContent} × `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
             if (valorAnterior != "" && valorActual != ""){//CUNADO LA PRIMERA OPRACION ESTA COMPLETA
-               operacion(multiplicacion)
+               operacion()
             }
+            simbolo = "×"
             pantallaValorAnterior.textContent = historial 
             break
         case "dividir":
-            simbolo = "÷"
-            historial += `${pantallaValorActual.textContent} ${simbolo} `
+            
+            historial += `${pantallaValorActual.textContent} ÷ `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
             if (valorAnterior != "" && valorActual != ""){//CUNADO LA PRIMERA OPRACION ESTA COMPLETA
-               operacion(division)
+               operacion()
             }
+            simbolo = "÷"
             pantallaValorAnterior.textContent = historial 
             break
         case "igual":
