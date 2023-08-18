@@ -9,7 +9,7 @@ let simbolo = "";
 let resultado = undefined;
 let resultadoActual = "";
 let historial = "";
-let valoresAnteriores = "";
+let valoresAnterior  = "";
 
 const suma = function(nro1, nro2){
     return parseFloat(nro1) + parseFloat(nro2)
@@ -37,8 +37,8 @@ function borrarTodo(){
     resultadoActual="";
 };
 //--------------
-function agregar_numero(numero){
-    pantallaValorActual.textContent = valorActual //Para reemplzar el resultado actual
+const agregar_numero = function(numero){
+    pantallaValorActual.textContent = valorActual 
     pantallaValorActual.style = "color:white;"
     let numeros = "";
     numeros = numeros + numero;
@@ -86,9 +86,6 @@ const operacion = function(){
     pantallaValorActual.textContent = resultadoActual
     pantallaValorActual.style = "color:gray;"
 }
-2+2
-
-
 
 /////////////////////////////////////////////////////////////////
 botonesOperadores.forEach(operador => {
@@ -97,10 +94,10 @@ botonesOperadores.forEach(operador => {
         case "sumar":
           historial += `${valorActual} + `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
-            imprimir_anterior(pantallaValorAnterior.textContent)
+                imprimir_anterior(pantallaValorAnterior.textContent)
             }
             if (valorAnterior != "" && valorActual != ""){//CUNADO LA PRIMERA OPRACION ESTA COMPLETA
-            operacion()
+                operacion()
              }
             simbolo = "+"
             pantallaValorAnterior.textContent = historial 
