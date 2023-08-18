@@ -23,12 +23,15 @@
     grid-template-rows: 130px 1fr;
     border: solid 1px var(--temaClaro);
     border-radius: 20px;
+
 }
 #pantalla{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
+    height: 75px;
+    width: 195px;
     padding: 7% 10%;
     border: solid 1px var(--temaClaro);
     border-radius: 20px;
