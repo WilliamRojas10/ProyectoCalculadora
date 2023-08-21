@@ -40,15 +40,30 @@
     cursor: pointer;
     overflow: hidden;
 }
+
+#pantalla-superior{
+    display: flex;
+}
 #valor-anterior{
     font-size: 1em;
     color: var(--temaClaro);
+}
+.scroll-izquierda{
+    color:var(--temaNaraja);
+}
+#pantalla-inferior{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 #valor-actual{
     font-size: 2.2em;
     color:var(--temaClaro);
 }
 
+#historial{
+    color:var(--temaClaro)
+}
 
 .teclado{
     display: grid;
