@@ -33,20 +33,35 @@
     height: 75px;
     width: 195px;
     padding: 7% 10%;
-    border: solid 1px var(--temaClaro);
-    border-radius: 20px;
+    border: 1px white;
+    border-bottom: 1px white;
     margin: 10px;
     margin-bottom: 5px;
     cursor: pointer;
     overflow: hidden;
 }
+
+#pantalla-superior{
+    display: flex;
+}
 #valor-anterior{
     font-size: 1em;
     color: var(--temaClaro);
 }
+.scroll-izquierda{
+    color:var(--temaNaraja);
+}
+#pantalla-inferior{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 #valor-actual{
     font-size: 2.2em;
     color:var(--temaClaro);
+}
+#historial{
+    color:var(--temaClaro)
 }
 .teclado{
     display: grid;
