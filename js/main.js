@@ -3,7 +3,7 @@ let pantallaValorActual = document.getElementById("valor-actual");
 const botonesNumeros = document.querySelectorAll(".numero");
 const botonesOperadores = document.querySelectorAll(".operador");
 const botonesFunciones = document.querySelectorAll(".funcion");
-const botones = document.querySelectorAll('button')
+
 let valorActual = "";
 let valorAnterior = "";
 let simbolo = "";//Cambia segun la operacion 
@@ -232,3 +232,34 @@ botonesFunciones.forEach(botonFuncion => {
         }
     })
 });
+
+//Efecto click
+botonesNumeros.forEach(boton => {
+    boton.addEventListener('click', () => {
+        boton.style.backgroundColor = 'white';
+
+        setTimeout(function() {
+            boton.style.backgroundColor = 'black';
+          }, 50);
+    })
+})
+
+botonesOperadores.forEach(boton => {
+    boton.addEventListener('click', () => {
+        boton.style.backgroundColor = 'white';
+
+        setTimeout(function() {
+            boton.style.backgroundColor = 'rgb(255, 123, 0)';
+          }, 50);
+    })
+})
+
+botonesFunciones.forEach(boton => {
+    boton.addEventListener('click', () => {
+        boton.style.backgroundColor = 'white';
+
+        setTimeout(function() {
+            boton.style.backgroundColor = 'rgb(59, 58, 58)';
+          }, 50);
+    })
+})
