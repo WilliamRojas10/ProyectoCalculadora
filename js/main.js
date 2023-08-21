@@ -3,6 +3,7 @@ let pantallaValorActual = document.getElementById("valor-actual");
 const botonesNumeros = document.querySelectorAll(".numero");
 const botonesOperadores = document.querySelectorAll(".operador");
 const botonesFunciones = document.querySelectorAll(".funcion");
+const botones = document.querySelectorAll('button')
 let valorActual = "";
 let valorAnterior = "";
 let simbolo = "";
