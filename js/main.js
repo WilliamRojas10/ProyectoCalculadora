@@ -9,7 +9,7 @@ let valorAnterior = "";
 let simbolo = "";//Cambia segun la operacion 
 let resultado = undefined;
 let resultadoActual = "";
-let historial = "";
+let historial = [];
 let valoresAnterior  = "";
 
 const suma = function(nro1, nro2){
@@ -33,9 +33,10 @@ function borrarTodo(){
     pantallaValorActual.innerHTML = "";
     pantallaValorAnterior.innerHTML = "";
     valorActual = "";
-    valorAnterior ="";
-    historial="";
-    resultadoActual="";
+    valorAnterior = "";
+    valoresAnterior= "";
+    resultadoActual= "";
+
 };
 //--------------
 const agregar_numero = function(numero){
@@ -93,7 +94,7 @@ botonesOperadores.forEach(operador => {
     operador.addEventListener("click", ()=>{
     switch (operador.value){
         case "sumar":
-          historial += `${valorActual} + `
+            valoresAnterior += `${valorActual} + `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                 imprimir_anterior(pantallaValorAnterior.textContent)
             }
@@ -101,10 +102,10 @@ botonesOperadores.forEach(operador => {
                 operacion()
              }
             simbolo = "+"
-            pantallaValorAnterior.textContent = historial 
+            pantallaValorAnterior.textContent = valoresAnterior
             break
         case "restar":
-            historial += `${pantallaValorActual.textContent} - `
+            valoresAnterior += `${pantallaValorActual.textContent} - `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
@@ -112,11 +113,11 @@ botonesOperadores.forEach(operador => {
                operacion()
             }
             simbolo = "-" 
-            pantallaValorAnterior.textContent = historial 
+            pantallaValorAnterior.textContent = valoresAnterior
             break
         case "multiplicar":
             
-            historial += `${pantallaValorActual.textContent} × `
+            valoresAnterior += `${pantallaValorActual.textContent} × `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
@@ -124,11 +125,11 @@ botonesOperadores.forEach(operador => {
                operacion()
             }
             simbolo = "×"
-            pantallaValorAnterior.textContent = historial 
+            pantallaValorAnterior.textContent = valoresAnterior 
             break
         case "dividir":
             
-            historial += `${pantallaValorActual.textContent} ÷ `
+            valoresAnterior += `${pantallaValorActual.textContent} ÷ `
             if (valorAnterior == ""){//CUNADO LA PRIMERA OPRACION ESTA INCOMPLETA
                imprimir_anterior(pantallaValorAnterior.textContent)
             }
@@ -136,7 +137,7 @@ botonesOperadores.forEach(operador => {
                operacion()
             }
             simbolo = "÷"
-            pantallaValorAnterior.textContent = historial 
+            pantallaValorAnterior.textContent = valoresAnterior
             break
         case "igual":
             if (valorAnterior != "" && pantallaValorActual !="" && simbolo != ""){
@@ -146,16 +147,26 @@ botonesOperadores.forEach(operador => {
                             pantallaValorActual.textContent =""; //para que no salga doble resultado en pantalla
                             pantallaValorActual.style = "color:white;"
                             imprimir_actual(resultado)
+
+                            historial.push(valoresAnterior)
+                            console.log("historial " + historial)
+
                             valorAnterior = ""
                             pantallaValorAnterior.textContent = "";
-                            historial = "";
+                            valoresAnterior = "";
+                            
                         }
                         else{ // PARA QUE OPERE EL RESULTADO DE LAS OPERACIONES ANTERIOR CON EL VALOR ACTUAL
                         pantallaValorActual.textContent = "";
                         imprimir_actual(suma(valorAnterior, valorActual))
+
+                        historial.push(valoresAnterior, "+", valorActual )
+                        console.log("historial " + historial)
+                        
                         valorAnterior = ""
                         pantallaValorAnterior.textContent = "";
-                        historial = "";
+                        valoresAnterior = "";
+                        
                         }
                         break
                     case "-":
@@ -165,14 +176,14 @@ botonesOperadores.forEach(operador => {
                             imprimir_actual(resultado)
                             valorAnterior = ""
                             pantallaValorAnterior.textContent = "";
-                            historial = "";
+                            valoresAnterior = "";
                         }
                         else{ // PARA QUE OPERE EL RESULTADO DE LAS OPERACIONES ANTERIOR CON EL VALOR ACTUAL
                         pantallaValorActual.textContent = "";
                         imprimir_actual(resta(valorAnterior, valorActual))
                         valorAnterior = ""
                         pantallaValorAnterior.textContent = "";
-                        historial = "";
+                        valoresAnterior= "";
                         }
                         break
                     case "×":
@@ -182,14 +193,14 @@ botonesOperadores.forEach(operador => {
                             imprimir_actual(resultado)
                             valorAnterior = ""
                             pantallaValorAnterior.textContent = "";
-                            historial = "";
+                            valoresAnterior = "";
                         }
                         else{ // PARA QUE OPERE EL RESULTADO DE LAS OPERACIONES ANTERIOR CON EL VALOR ACTUAL
                         pantallaValorActual.textContent = "";
                         imprimir_actual(multiplicacion(valorAnterior, valorActual))
                         valorAnterior = ""
                         pantallaValorAnterior.textContent = "";
-                        historial = "";
+                        valoresAnterior = "";
                         }
                         break
                     case "÷":
@@ -199,17 +210,19 @@ botonesOperadores.forEach(operador => {
                             imprimir_actual(resultado)
                             valorAnterior = ""
                             pantallaValorAnterior.textContent = "";
-                            historial = "";
+                            valoresAnterior = "";
                         }
                         else{ // PARA QUE OPERE EL RESULTADO DE LAS OPERACIONES ANTERIOR CON EL VALOR ACTUAL
                         pantallaValorActual.textContent = "";
                         imprimir_actual(division(valorAnterior, valorActual))
                         valorAnterior = ""
                         pantallaValorAnterior.textContent = "";
-                        historial = "";
+                        valoresAnterior= "";
                         }
                         break
+                        
                 }
+         
             }
             else{
                 pantallaValorActual.textContent = "";
