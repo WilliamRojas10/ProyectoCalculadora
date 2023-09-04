@@ -8,10 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    
-    <script src="js/test.js" defer></script>
-    <script src="js/main.js" defer></script>
     <title>Calculadora</title>
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
 <div class="contenedor">
@@ -45,8 +44,20 @@
                     </svg>
                 </div>
             </div>     
+
+            <div id="hamburgesa">
+                <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+            </div>
         </div>
 
+        <div class="menu oculto" id="menu">
+            <i class="fa-solid fa-circle-xmark" style="color: #ffffff;" id="close"></i>
+            <a href="">Sobre nosotros</a>
+            <a href="">Contactanos</a>
+            <a href="">Politicas de privacidad</a>
+            <a href="">Temas</a>
+            <a href="">Ayuda</a>
+        </div>
         
         <!--Teclado-->
         <div class="teclado">
@@ -78,5 +89,8 @@
             </div>
         </div>
     </div>
+
+    <script src="js/test.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

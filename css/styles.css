@@ -4,6 +4,9 @@
     --temaNaraja: rgb(255, 123, 0);
     --tamanioFuente: 28px;
 }
+body{
+    position: relative;
+}
 
 *{
     background-color: var(--temaOscuro);
@@ -27,6 +30,7 @@
 }
 
 #pantalla{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,6 +67,52 @@
 
 #historial{
     color:var(--temaClaro)
+}
+
+#hamburgesa{
+    position: absolute;
+    right: 95%;
+    top: 80%;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    background: #260b0b;
+    transition: transform 1s, opacity 0.5s;
+}
+
+.menu #close{
+    display: flex;
+    color: #ffffff;
+    position: relative;
+    justify-content: flex-end;
+    background-color: transparent;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.menu a{
+    margin: 40px 0 0 10px;
+    background-color: transparent;
+    color: aliceblue;
+    text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 12px;
+}
+
+.oculto{
+    transform: translateX(-150px);
+    opacity: 0;
+}
+
+.visible{
+    visibility: visible;
+    transform: translateX(0px);
+    opacity: 1;
 }
 
 .teclado{
