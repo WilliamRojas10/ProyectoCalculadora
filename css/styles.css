@@ -72,17 +72,20 @@ body{
 #hamburgesa{
     position: absolute;
     right: 95%;
-    top: 80%;
+    top: 10%;
 }
 
 .menu{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 20px;
     position: absolute;
     height: 100%;
     width: 45%;
     background: #260b0b;
     transition: transform 1s, opacity 0.5s;
+    border-radius: 20px;
 }
 
 .menu #close{
@@ -91,8 +94,10 @@ body{
     position: relative;
     justify-content: flex-end;
     background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 40px;
 }
 
 .menu a{
@@ -101,7 +106,7 @@ body{
     color: aliceblue;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif ;
-    font-size: 12px;
+    font-size:20px;
 }
 
 .oculto{
@@ -181,10 +186,25 @@ body{
 }
 
 /*breakpoints 420px*/
-@media screen and (min-width:425px){
-    #pantalla{
-        height: 65px;
+@media screen and (max-width:425px){
+    .menu{
+        width: 100%;
     }
+    .calculadora{
+    grid-template-rows: auto auto;
+       border-radius: 20px;
+    }
+    #pantalla{
+        width: 90%;
+  
+        height:90%;
+        padding: 0;
+        
+        border-bottom:solid 1px transparent ;
+        
+       
+        
+        }
 }
 
 /*breakpoints 768px*/
@@ -195,4 +215,43 @@ body{
     .teclado{
         margin-top: 20px;
     }
+}
+
+@media screen and (min-width:650px){
+  
+    .contenedor{
+        display: flex;
+        margin: 10px;
+
+        align-items: center;
+        height: 90vh;
+        width: 100vh;
+        
+    }
+    .calculadora{
+        border: solid 1px  white; grid-template-rows: 200px auto;
+       border-radius: 20px;
+    }
+    #pantalla{
+     
+  
+    height:90%;
+    padding: 0;
+    
+    border-bottom:solid 1px var(--temaClaro);
+    
+   
+    
+    }
+
+    .teclado{
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5,1fr);
+            gap: 7px;
+            margin: 10px;
+        
+    }
+    
 }
